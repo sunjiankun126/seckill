@@ -23,8 +23,8 @@ public interface SuccessKilledMapper {
 	 * @param userPhone
 	 * @return
 	 */
-	@Insert("INSERT IGNORE INTO success_killed(seckill_id,user_phone) " +
-			"VALUES (#{seckillId},#{userPhone})")
+//	@Insert("INSERT IGNORE INTO success_killed(seckill_id,user_phone) " +
+//			"VALUES (#{seckillId},#{userPhone})")
 	int insertSuccessKilled(@Param("seckillId") long seckillId, @Param("userPhone") long userPhone);
 
 	/**

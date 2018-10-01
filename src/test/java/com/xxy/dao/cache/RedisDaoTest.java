@@ -1,6 +1,7 @@
 package com.xxy.dao.cache;
 
 import com.xxy.po.Seckill;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Date;
@@ -16,7 +17,7 @@ public class RedisDaoTest {
 	@Test
 	public void RedisDaoTest(){
 
-		RedisDao redisDao =new RedisDao("118.89.36.125",6379);
+		RedisDao redisDao =new RedisDao("127.0.0.1",6379);
 
 		Seckill seckill=new Seckill();
 		seckill.setSeckillId(1263);
@@ -27,6 +28,9 @@ public class RedisDaoTest {
 		seckill.setStartTime(new Date());
 		redisDao.putSeckill(seckill);
 		System.out.println(redisDao.getSeckill(1263));
+		Seckill secKillRedis = redisDao.getSeckill(1263);
+		Assert.assertNotNull(secKillRedis);
+		Assert.assertEquals(seckill.toString(), secKillRedis.toString());
 
 	}
 

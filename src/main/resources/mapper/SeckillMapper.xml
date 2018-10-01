@@ -11,4 +11,21 @@
         <result property="endTime" column="end_time"/>
         <result property="createTime" column="create_time"/>
     </resultMap>
+    <sql id = "Base_Column_List">
+      seckill_id,name,number,start_time,end_time,create_time
+    </sql>
+
+    <select id = "queryById" resultMap="com.xxy.dao.SeckillMapper.SeckillMap">
+        select
+        <include refid="Base_Column_List"/>
+        from seckill where seckill_id = #{seckillId}
+    </select>
+
+
+    <select id = "queryAll" resultMap="com.xxy.dao.SeckillMapper.SeckillMap">
+        select
+        <include refid="Base_Column_List"/>
+        from seckill ORDER BY create_time DESC LIMIT #{offet},#{limit}
+    </select>
+
 </mapper>

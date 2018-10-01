@@ -37,10 +37,6 @@ public interface SeckillMapper {
 	 * @param seckillId
 	 * @return
 	 */
-	@Select("SELECT seckill_id,name,number,start_time,end_time,create_time " +
-			"FROM seckill " +
-			"WHERE seckill_id=#{seckillId}")
-	@ResultMap("com.xxy.dao.SeckillMapper.SeckillMap")
 	Seckill queryById(long seckillId);
 
 	/**
@@ -49,9 +45,6 @@ public interface SeckillMapper {
 	 * @param offet
 	 * @return
 	 */
-	@Select("SELECT seckill_id,name,number,start_time,end_time,create_time " +
-			"FROM seckill ORDER BY create_time DESC LIMIT #{offet},#{limit}")
-	@ResultMap("com.xxy.dao.SeckillMapper.SeckillMap")
 	List<Seckill> queryAll(@Param("offet") int offet, @Param("limit") int limit);
 
 	/**

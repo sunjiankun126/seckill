@@ -17,4 +17,9 @@
             <result property="createTime" column="s_create_time"/>
         </association>
     </resultMap>
+    <insert id="insertSuccessKilled" >
+        insert ignore into success_killed (seckill_id,user_phone)
+        VALUES
+        ({#{seckillId},#{userPhone}})
+    </insert>
 </mapper>
